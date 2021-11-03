@@ -54,23 +54,26 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
             QuakeInfo currentQuakeInfo = getItem(position);
 
 
-            // Find the TextView in the activity_list.xml layout with the ID version_name
+            // Find the TextView in the activity_list.xml layout with the ID version_mag
             TextView MagTextView = listItemView.findViewById(R.id.version_mag);
             // Get the version name from the current AndroidFlavor object and
             // set this text on the name TextView
             MagTextView.setText(currentQuakeInfo.getVersionMag());
 
-            // Find the TextView in the activity_list.xml layout with the ID version_number
+            // Find the TextView in the activity_list.xml layout with the ID version_place
             TextView placeTextView = listItemView.findViewById(R.id.version_place);
             // Get the version number from the current QuakeInfo object and
             // set this text on the number TextView
             placeTextView.setText(currentQuakeInfo.getVersionPlace());
 
-            // Find the TextView in the activity_list.xml layout with the ID list_item_icon
+            // Find the TextView in the activity_list.xml layout with the ID version_date
             TextView dateTextView = listItemView.findViewById(R.id.version_date);
             // Get the image resource ID from the current QuakeInfo object and
             // set the image to iconView
             dateTextView.setText(currentQuakeInfo.getVersionDate());
+
+            //Find the TextView in the activity_list.xml layout with the ID version_time
+            TextView timeTextView = listItemView.findViewById(R.id.version_time);
 
             // Return the whole list item layout (containing 3 TextViews)
             // so that it can be shown in the ListView

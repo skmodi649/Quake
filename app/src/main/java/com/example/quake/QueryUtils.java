@@ -73,12 +73,15 @@ public final class QueryUtils {
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
                 String date = dateFormatter.format(dateObject);
 
+                SimpleDateFormat timeFormatter = new SimpleDateFormat("h:mm a");
+                String time = timeFormatter.format(dateObject);
+
                 // Now converting the data in String
 
                 String magg = String.valueOf(mag);
 
 
-                QuakeInfo obj = new QuakeInfo(magg , place , date);
+                QuakeInfo obj = new QuakeInfo(magg , place , date , time);
                 earthquakes.add(obj);
             }
         }

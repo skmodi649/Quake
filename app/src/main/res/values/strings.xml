@@ -4,4 +4,5 @@
     <string name="new_york">New York</string>
     <string name="feb_14_2009">Feb 14,2009</string>
     <string name="date">MMM DD , yyyy</string>
+    <string name="_3_00_pm">3:00 PM</string>
 </resources>

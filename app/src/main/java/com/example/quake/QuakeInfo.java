@@ -11,12 +11,16 @@ public class QuakeInfo {
     // Date of Earthquake
     private final String mVersionDate;
 
+    //Time of Earthquake
+    private final String mVersionTime;
+
     // Creating a constructor for the objects
-    public QuakeInfo(String vMag , String vPlace , String vDate)
+    public QuakeInfo(String vMag , String vPlace , String vDate , String vTime)
     {
         mVersionDate = vDate;
         mVersionMag = vMag;
         mVersionPlace = vPlace;
+        mVersionTime = vTime;
     }
 
     /**
