@@ -56,24 +56,33 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
 
             // Find the TextView in the activity_list.xml layout with the ID version_mag
             TextView MagTextView = listItemView.findViewById(R.id.version_mag);
-            // Get the version name from the current AndroidFlavor object and
-            // set this text on the name TextView
+            // Get the version magnitude from the current QuakeInfo object and
+            // set this text on the mag TextView
             MagTextView.setText(currentQuakeInfo.getVersionMag());
 
             // Find the TextView in the activity_list.xml layout with the ID version_place
             TextView placeTextView = listItemView.findViewById(R.id.version_place);
-            // Get the version number from the current QuakeInfo object and
-            // set this text on the number TextView
+            // Get the version place from the current QuakeInfo object and
+            // set this text on the place TextView
             placeTextView.setText(currentQuakeInfo.getVersionPlace());
 
             // Find the TextView in the activity_list.xml layout with the ID version_date
             TextView dateTextView = listItemView.findViewById(R.id.version_date);
-            // Get the image resource ID from the current QuakeInfo object and
-            // set the image to iconView
+            // Get the version date from the current QuakeInfo object and
+            // set the text to date TextView
             dateTextView.setText(currentQuakeInfo.getVersionDate());
 
             //Find the TextView in the activity_list.xml layout with the ID version_time
             TextView timeTextView = listItemView.findViewById(R.id.version_time);
+            // Get the version time from the current QuakeInfo object and
+            // set the text to time TextView
+            timeTextView.setText(currentQuakeInfo.getVersionTime());
+
+            //Find the TextView in the activity_list.xml layout with the ID version_placedetail
+            TextView detailTextView = listItemView.findViewById(R.id.version_placedetail);
+            // Get the version time from the current QuakeInfo object and
+            // set the text to time TextView
+            detailTextView.setText(currentQuakeInfo.getVersionPlaceDetail());
 
             // Return the whole list item layout (containing 3 TextViews)
             // so that it can be shown in the ListView

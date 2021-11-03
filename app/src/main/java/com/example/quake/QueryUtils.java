@@ -81,7 +81,15 @@ public final class QueryUtils {
                 String magg = String.valueOf(mag);
 
 
-                QuakeInfo obj = new QuakeInfo(magg , place , date , time);
+                int index = place.indexOf("of");
+                String fur = place.substring(index+2,place.length());
+
+
+                String plateau = place.substring(0 , index + 2);
+
+
+
+                QuakeInfo obj = new QuakeInfo(magg , plateau , date , time , fur);
                 earthquakes.add(obj);
             }
         }
@@ -95,6 +103,5 @@ public final class QueryUtils {
 
         // Return the list of earthquakes
         return earthquakes;
-
     }
 }

@@ -11,23 +11,26 @@ public class QuakeInfo {
     // Date of Earthquake
     private final String mVersionDate;
 
-    //Time of Earthquake
+    // Time of Earthquake
     private final String mVersionTime;
 
+    // More details of the Place
+    private final String mVersionPlaceDetail;
+
     // Creating a constructor for the objects
-    public QuakeInfo(String vMag , String vPlace , String vDate , String vTime)
-    {
+    public QuakeInfo(String vMag, String vPlace, String vDate, String vTime, String vPlaceDetail) {
         mVersionDate = vDate;
         mVersionMag = vMag;
         mVersionPlace = vPlace;
         mVersionTime = vTime;
+        mVersionPlaceDetail = vPlaceDetail;
     }
 
     /**
      * Getting magnitude of the Earthquake
      */
 
-    public String getVersionMag(){
+    public String getVersionMag() {
         return mVersionMag;
     }
 
@@ -43,7 +46,26 @@ public class QuakeInfo {
      * Getting date of Earthquake
      */
 
-    public String getVersionDate(){
+    public String getVersionDate() {
         return mVersionDate;
     }
+
+    /**
+     * Getting time of Earthquake
+     */
+
+    public String getVersionTime() {
+        return mVersionTime;
+    }
+
+    /**
+     * Getting detail of Place
+     */
+
+    public String getVersionPlaceDetail()
+
+    {
+        return mVersionPlaceDetail;
+    }
+
 }
