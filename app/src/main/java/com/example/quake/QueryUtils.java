@@ -1,9 +1,11 @@
 package com.example.quake;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.lang.String;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.Date;
 
 import android.util.Log;
 
@@ -65,15 +67,18 @@ public final class QueryUtils {
 
                 Double mag = properties.getDouble("mag");
                 String place = properties.getString("place");
-                Long time = properties.getLong("time");
+                Long timeInMilliseconds = properties.getLong("time");
+                Date dateObject = new Date(timeInMilliseconds);
+
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+                String date = dateFormatter.format(dateObject);
 
                 // Now converting the data in String
 
                 String magg = String.valueOf(mag);
-                String timee = String.valueOf(time);
 
 
-                QuakeInfo obj = new QuakeInfo(magg , place , timee);
+                QuakeInfo obj = new QuakeInfo(magg , place , date);
                 earthquakes.add(obj);
             }
         }
