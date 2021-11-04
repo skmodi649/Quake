@@ -3,10 +3,15 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical"
+    android:id="@+id/further"
+    android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:divider="@null"
+    android:dividerHeight="0dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp">
 
     <TextView
         android:id="@+id/version_mag"
@@ -20,48 +25,65 @@
         android:textColor="@android:color/white"
         android:textSize="12sp" />
 
-
-    <TextView
-        android:id="@+id/version_place"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginStart="16dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_weight="1"
-        android:text="@string/new_york"
-        android:textSize="12sp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/version_placedetail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:text="@string/new_york"
-        android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/version_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:text="@string/feb_14_2009"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/version_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:textSize="12sp"
+            android:text="@string/_30km_s_of" />
 
-    <TextView
-        android:id="@+id/version_time"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/version_placedetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/textColorEarthquakeLocation"
+            android:textSize="16sp"
+            android:text="@string/pladet" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginStart="16dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:text="@string/_3_00_pm"
-        android:textSize="12sp" />
+        android:layout_marginStart="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/version_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:textSize="12sp"
+            android:text="@string/feb_14_2009" />
+
+        <TextView
+            android:id="@+id/version_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:textSize="12sp"
+            android:text="@string/_3_00_pm" />
+
+    </LinearLayout>
 </LinearLayout>

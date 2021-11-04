@@ -17,13 +17,17 @@ public class QuakeInfo {
     // More details of the Place
     private final String mVersionPlaceDetail;
 
+    // Url of the Website
+    private final String Url;
+
     // Creating a constructor for the objects
-    public QuakeInfo(double vMag, String vPlace, String vDate, String vTime, String vPlaceDetail) {
+    public QuakeInfo(double vMag, String vPlace, String vDate, String vTime, String vPlaceDetail, String vUrl) {
         mVersionDate = vDate;
         mVersionMag = vMag;
         mVersionPlace = vPlace;
         mVersionTime = vTime;
         mVersionPlaceDetail = vPlaceDetail;
+        Url = vUrl;
     }
 
     /**
@@ -67,5 +71,11 @@ public class QuakeInfo {
     {
         return mVersionPlaceDetail;
     }
+
+    /**
+     * Getting URL of the Website
+     */
+
+    public String getVersionUrl() { return Url; }
 
 }

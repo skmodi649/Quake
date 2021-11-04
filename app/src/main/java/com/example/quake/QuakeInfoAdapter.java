@@ -2,11 +2,14 @@ package com.example.quake;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -61,6 +64,19 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
 
             // Get the {@link QuakeInfo} object located at this position in the list
             QuakeInfo currentQuakeInfo = getItem(position);
+
+            // Getting the URL of the website of each Earthquake
+
+            String geturl = currentQuakeInfo.getVersionUrl();
+            LinearLayout linear = listItemView.findViewById(R.id.further);
+            linear.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri uri = Uri.parse(geturl); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    getContext().startActivity(intent);
+                }
+            });
 
 
             // Find the TextView with view ID magnitude

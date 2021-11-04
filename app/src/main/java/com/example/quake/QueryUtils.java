@@ -7,9 +7,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Date;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
 public final class QueryUtils {
+
+     private Activity context;
 
 
     //JSON String has been provided to you already
@@ -52,16 +57,20 @@ public final class QueryUtils {
         // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
         // build up a list of Earthquake objects with the corresponding data.
 
-        try{
+        try {
             JSONObject json = new JSONObject(SAMPLE_JSON_RESPONSE);
             JSONArray jsonarray = json.optJSONArray("features");
 
 
-
-            for(int i = 0; i < (jsonarray != null ? jsonarray.length() : 0); i++)
-            {
+            for (int i = 0; i < (jsonarray != null ? jsonarray.length() : 0); i++) {
                 JSONObject feature = jsonarray.getJSONObject(i);
                 JSONObject properties = feature.getJSONObject("properties");
+
+
+
+                // Getting URL of the Earthquake
+                String url = properties.getString("url");
+
 
                 // First extracting data in correct format as given
 
@@ -83,15 +92,20 @@ public final class QueryUtils {
 
 
                 int index = place.indexOf("of");
-                String fur = place.substring(index+2,place.length());
+                if (index >= 0) {
+                    String fur = place.substring(index + 2, place.length());
 
 
-                String plateau = place.substring(0 , index + 2);
+                    String plateau = place.substring(0, index + 2);
 
 
-
-                QuakeInfo obj = new QuakeInfo(magg , plateau , date , time , fur);
-                earthquakes.add(obj);
+                    QuakeInfo obj = new QuakeInfo(magg, plateau, date, time, fur, url);
+                    earthquakes.add(obj);
+                } else {
+                    String notgiven = "";
+                    QuakeInfo obj = new QuakeInfo(magg, notgiven, date, time, place, url);
+                    earthquakes.add(obj);
+                }
             }
         }
         catch (JSONException e) {

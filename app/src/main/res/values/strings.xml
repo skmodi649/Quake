@@ -5,4 +5,6 @@
     <string name="feb_14_2009">Feb 14,2009</string>
     <string name="date">MMM DD , yyyy</string>
     <string name="_3_00_pm">3:00 PM</string>
+    <string name="_30km_s_of">30km S of</string>
+    <string name="pladet">Long placeholder location that should wrap to more than 2 lines of text</string>
 </resources>
