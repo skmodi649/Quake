@@ -58,7 +58,7 @@ public final class QueryUtils {
 
 
 
-            for(int i = 0 ; i < jsonarray.length() ; i++)
+            for(int i = 0; i < (jsonarray != null ? jsonarray.length() : 0); i++)
             {
                 JSONObject feature = jsonarray.getJSONObject(i);
                 JSONObject properties = feature.getJSONObject("properties");
@@ -67,10 +67,10 @@ public final class QueryUtils {
 
                 Double mag = properties.getDouble("mag");
                 String place = properties.getString("place");
-                Long timeInMilliseconds = properties.getLong("time");
+                long timeInMilliseconds = properties.getLong("time");
                 Date dateObject = new Date(timeInMilliseconds);
 
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM dd, yyyy");
                 String date = dateFormatter.format(dateObject);
 
                 SimpleDateFormat timeFormatter = new SimpleDateFormat("h:mm a");
@@ -78,7 +78,8 @@ public final class QueryUtils {
 
                 // Now converting the data in String
 
-                String magg = String.valueOf(mag);
+                String maggie = String.valueOf(mag);
+                double magg = Double.parseDouble(maggie);
 
 
                 int index = place.indexOf("of");

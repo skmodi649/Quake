@@ -3,7 +3,7 @@ package com.example.quake;
 public class QuakeInfo {
 
     // Magnitude of the Earthquake
-    private final String mVersionMag;
+    private final double mVersionMag;
 
     // Name of the Earthquake location
     private final String mVersionPlace;
@@ -18,7 +18,7 @@ public class QuakeInfo {
     private final String mVersionPlaceDetail;
 
     // Creating a constructor for the objects
-    public QuakeInfo(String vMag, String vPlace, String vDate, String vTime, String vPlaceDetail) {
+    public QuakeInfo(double vMag, String vPlace, String vDate, String vTime, String vPlaceDetail) {
         mVersionDate = vDate;
         mVersionMag = vMag;
         mVersionPlace = vPlace;
@@ -30,7 +30,7 @@ public class QuakeInfo {
      * Getting magnitude of the Earthquake
      */
 
-    public String getVersionMag() {
+    public double getVersionMag() {
         return mVersionMag;
     }
 

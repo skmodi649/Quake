@@ -14,29 +14,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Creating a demo list of Earthquake locations
 
-        // ArrayList<QuakeInfo> list = new ArrayList<QuakeInfo>();
 
-        // list.add(new QuakeInfo("7.2" , "San Fransisco" , "Feb 2,2016"));
-        // list.add(new QuakeInfo("6.1" , "London" , "July 20,2015"));
-        // list.add(new QuakeInfo("3.9" , "Tokyo" , "Nov 10,2014"));
-        // list.add(new QuakeInfo("5.4" , "Mexico City" , "May 3,2014"));
-        // list.add(new QuakeInfo("5.3" , "Patna" , "April 28,2015"));
-        // list.add(new QuakeInfo("7.8" , "Vice City" , "Aug 19,1948"));
-        // list.add(new QuakeInfo("9.1" , "Peshawar" , "Nov 10,2021"));
-        // list.add(new QuakeInfo("7.3" , "Lahore" , "Dec 10,2022"));
-        // list.add(new QuakeInfo("4.9" , "Delhi" , "June 15,2012"));
-        // list.add(new QuakeInfo("5.8" , "Kolkata" , "Jan 16,2005"));
-        // list.add(new QuakeInfo("6.5" , "Chennai" , "Oct 17,2007"));
-        // list.add(new QuakeInfo("7.7" , "Bihar" , "Feb 14,2012"));
-        // list.add(new QuakeInfo("8.9" , "Kerala" , "March 16,1989"));
-
-
-        /**
-         * Now using JSON object Arraylist
-         * They correspond to the QueryUtils class
+        /*
+          Now using JSON object Arraylist
+          They correspond to the QueryUtils class
          */
 
-        ArrayList list = QueryUtils.extractEarthquakes();
+        ArrayList<QuakeInfo> list = QueryUtils.extractEarthquakes();
 
 
         // Create a new {@link ArrayAdapter} of earthquake

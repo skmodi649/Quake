@@ -10,41 +10,58 @@
 
     <TextView
         android:id="@+id/version_mag"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/magnitude_circle"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:text="@string/_8_9"
-        android:textSize="16sp" />
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
 
     <TextView
         android:id="@+id/version_place"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_weight="1"
         android:text="@string/new_york"
-        android:textSize="16sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/version_placedetail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_weight="1"
         android:text="@string/new_york"
-        android:textSize="16sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/version_date"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_weight="1"
         android:text="@string/feb_14_2009"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/version_time"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_weight="1"
         android:text="@string/_3_00_pm"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:textSize="12sp" />
 </LinearLayout>

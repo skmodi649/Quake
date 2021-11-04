@@ -1,17 +1,24 @@
 package com.example.quake;
 
-import android.widget.ArrayAdapter;
 import android.app.Activity;
-import java.util.ArrayList;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
 
 
-    private Activity context;
+     private Activity context;
+
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -21,7 +28,7 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
      * @param quakeInfos A List of AndroidFlavor objects to display in a list
      */
 
-    public  QuakeInfoAdapter(Activity context, ArrayList<QuakeInfo> quakeInfos) {
+    public  QuakeInfoAdapter(Context context, ArrayList<QuakeInfo> quakeInfos) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for three TextViews , the adapter is not
@@ -29,8 +36,7 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
         super(context, 0, quakeInfos);
     }
 
-
-        /**
+    /**
          * Provides a view for an AdapterView (ListView, GridView, etc.)
          *
          * @param position The position in the list of data that should be displayed in the
@@ -42,6 +48,9 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
+
+
             // Check if the existing view is being reused, otherwise inflate the view
             View listItemView = convertView;
             if(listItemView == null) {
@@ -54,11 +63,20 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
             QuakeInfo currentQuakeInfo = getItem(position);
 
 
-            // Find the TextView in the activity_list.xml layout with the ID version_mag
-            TextView MagTextView = listItemView.findViewById(R.id.version_mag);
-            // Get the version magnitude from the current QuakeInfo object and
-            // set this text on the mag TextView
-            MagTextView.setText(currentQuakeInfo.getVersionMag());
+            // Find the TextView with view ID magnitude
+            TextView magnitudeView =  listItemView.findViewById(R.id.version_mag);
+            // Format the magnitude to show 1 decimal place
+            String formattedMagnitude = formatMagnitude(currentQuakeInfo.getVersionMag());
+            // Display the magnitude of the current earthquake in that TextView
+            magnitudeView.setText(formattedMagnitude);
+
+            // Set the proper background color on the magnitude circle.
+            // Fetch the background from the TextView, which is a GradientDrawable.
+            GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeView.getBackground();
+            // Get the appropriate background color based on the current earthquake magnitude
+            int magnitudeColor = getMagnitudeColor(currentQuakeInfo.getVersionMag());
+            // Set the color on the magnitude circle
+            magnitudeCircle.setColor(magnitudeColor);
 
             // Find the TextView in the activity_list.xml layout with the ID version_place
             TextView placeTextView = listItemView.findViewById(R.id.version_place);
@@ -90,5 +108,53 @@ public class QuakeInfoAdapter extends ArrayAdapter<QuakeInfo> {
 
         }
 
+    /**
+     * Return the formatted magnitude string showing 1 decimal place (i.e. "3.2")
+     * from a decimal magnitude value.
+     */
+    private String formatMagnitude(double magnitude) {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        return magnitudeFormat.format(magnitude);
+    }
 
+
+
+    private int getMagnitudeColor(double magnitude) {
+        int magnitudeColorResourceId;
+        int magnitudeFloor = (int) Math.floor(magnitude);
+        switch (magnitudeFloor) {
+            case 0:
+            case 1:
+                magnitudeColorResourceId = R.color.magnitude1;
+                break;
+            case 2:
+                magnitudeColorResourceId = R.color.magnitude2;
+                break;
+            case 3:
+                magnitudeColorResourceId = R.color.magnitude3;
+                break;
+            case 4:
+                magnitudeColorResourceId = R.color.magnitude4;
+                break;
+            case 5:
+                magnitudeColorResourceId = R.color.magnitude5;
+                break;
+            case 6:
+                magnitudeColorResourceId = R.color.magnitude6;
+                break;
+            case 7:
+                magnitudeColorResourceId = R.color.magnitude7;
+                break;
+            case 8:
+                magnitudeColorResourceId = R.color.magnitude8;
+                break;
+            case 9:
+                magnitudeColorResourceId = R.color.magnitude9;
+                break;
+            default:
+                magnitudeColorResourceId = R.color.magnitude10plus;
+                break;
+        }
+        return ContextCompat.getColor(getContext() , magnitudeColorResourceId);
+    }
 }
